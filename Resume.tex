@@ -1,0 +1,156 @@
+%!TEX TS-program = xelatex
+\documentclass[a4paper]{article}
+
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fontspec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{eso-pic}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{multicol}
+
+\setmainfont{Libertinus}[
+    Path=./fonts/Libertinus/,
+    Extension=.otf,
+    UprightFont=*Serif-Regular,
+    BoldFont=*Serif-Bold,
+    ItalicFont=*Serif-Italic,
+    BoldItalicFont=*Serif-BoldItalic,
+]
+
+\setsansfont{Junction}[
+    Path=./fonts/junction/,
+    Extension=.otf,
+    UprightFont=*-regular,
+    BoldFont=*-bold,
+    ItalicFont=*-light,
+]
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=MidnightBlue,
+}
+
+\newgeometry{top=2.1cm}
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+\renewcommand{\maketitle}{
+    \begin{center}
+        \color{white}
+        {\huge\bfseries\theauthor}
+        \vspace{.5em}
+
+        \textsf{![CELLPHONE] | ![EMAIL]}\par
+        \textsf{![ADDRESS]}
+
+    \end{center}
+}
+
+\titleformat{\section}{\huge\bfseries\center}{}{0em}{\textsf}[\titlerule]
+\titleformat{\subsection}{\bfseries\Large}{}{0em}{\textsf}
+\titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{\textsf}
+
+\begin{document}
+
+\AddToShipoutPictureBG*{%
+    \AtPageUpperLeft{%
+        \raisebox{-4.5cm}{%
+            \definecolor{bestgray}{RGB}{16,16,16}%
+            \color{bestgray}%
+            \rule{\paperwidth}{3.5cm}%
+        }%
+    }%
+}%
+
+\author{\textsf{![FIRSTNAME] ![LASTNAME]}}
+\maketitle
+
+\section{Technology}
+
+Information Technology professional experienced with both hardware and software troubleshooting for both desktops, laptops, and server infrastructure. Highly proficient with advanced TCP/IP networking provisioning, with hands-on experience. Experienced with both desktop and enterprise operating systems; having incorporated them into my own personal infrastructure. Quick learner, self-starter, motivated team player with excellent communication and writing skills.
+
+\section{Technical Skills}
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Hardware \& Software Troubleshooting
+        \item Desktop \& Server Maintenance
+        \item OpenVPN \& Wireguard Support
+        \item VirtualBox, VMware Workstation
+        \item VMware ESXi, Proxmox
+        \item Hardware \& Network Security
+        \item Python, Bash, Powershell, SQL
+        \item Communication \& Documentation
+        \item Active Directory
+        \item RouterOS, SwitchOS, Cisco CLI
+        \item Microsoft Office 365 2010/2020
+        \item PostgreSQL, Mysql, MariaDB, SQLite
+        \item Software Installation and Upgrade
+        \item Git/GitHub/GitLab
+
+    \end{itemize}
+\end{multicols}
+
+\section{Professional Experience}
+\begin{minipage}{\textwidth}
+PacSun -- Anaheim, CA -- November-2021 to Present\par
+\textit{American Retail Chain}\par
+\textbf{Technology Support Technician}
+
+\medskip
+\textbf{Overview:} Worked with stores in the United States and Puerto Rico to troubleshoot network, VOIP, POS/MPOS, and hardware/software issues. Also assisted with issues related to payment processing and order management. Resolved issues with Active Directory user configuration, as well as Cisco AnyConnect incorporation.
+
+\medskip
+- \textbf{Delivered success:} Ensured all technological issues were resolved in a timely manner during Black Friday, Christmas, and New Years holidays, as well as developing network troubleshooting tools written in Python.
+\end{minipage}
+
+\vspace{20pt}
+\begin{minipage}{\textwidth}
+Hot Topic, Inc. -- City of Industry, CA -- Aug-2021 to Nov-2021\par
+\textit{American Retail Chain}\par
+\textbf{Help Desk Technology Associate}
+
+\medskip
+\textbf{Overview:} Worked with stores in the United States, Canada, and Puerto Rico to troubleshoot network, POS/MPOS, and hardware/software issues. Additionally assisted with issues relating to payment processing and order management. Utilized Cisco Meraki to troubleshoot Cisco router hardware and firmware.
+
+\medskip
+- \textbf{Delivered success:} Developed department-wide remote administration tools to increase the efficiency of the helpdesk team, guaranteeing optimum support.
+\end{minipage}
+
+\vspace{20pt}
+\begin{minipage}{\textwidth}
+GW Security, Inc. -- South El Monte, CA -- Aug-2020 to Jun-2021\par
+\textit{Security and Surveillance Retailer}\par
+\textbf{Technology Support Specialist}
+
+\medskip
+\textbf{Overview:} Performed the role of a helpdesk technician, assisting with network, hardware, and software related issues.
+
+\medskip
+- \textbf{Delivered success:} Assisted with upgrading help desk infrastructure, ensuring tickets were resolved swiftly and efficiently for all helpdesk technicians.
+\end{minipage}
+
+\section{Projects}
+Self-hosted HA Kubernetes cluster backed by \href{https://toolkit.fluxcd.io}{Flux} and \href{https://toolkit.fluxcd.io/guides/mozilla-sops}{SOPS}:\par
+- [\url{https://github.com/Euvaz/GitOps-Home}]
+
+\section{Education}
+\subsection{Degrees}
+Rio Hondo College -- South El Monte, CA -- May-2021\par
+\textbf{AS Cybersecurity}\par
+
+\medskip
+San Jose -- San Jose, CA -- Expected Spring-2025\par
+\textbf{BS Computer Science}
+
+\subsection{Certificates}
+\textbf{Cloud Computing Practitioner Certificate}, Rio Hondo College -- May-2021\par
+\textbf{Cybersecurity Certificate}, Rio Hondo College -- May-2021\par
+\textbf{Ethical Hacker Certificate}, Rio Hondo College -- May-2021\par
+\textbf{Cybersecurity Technician Certificate}, Rio Hondo College -- May-2021
+
+\end{document}
