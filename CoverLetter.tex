@@ -1,0 +1,91 @@
+%!TEX TS-program = xelatex
+\documentclass[a4paper]{article}
+
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fontspec}
+\usepackage{eso-pic}
+\usepackage{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Libertinus}[
+    Path=./fonts/Libertinus/,
+    Extension=.otf,
+    UprightFont=*Serif-Regular,
+    BoldFont=*Serif-Bold,
+    ItalicFont=*Serif-Italic,
+    BoldItalicFont=*Serif-BoldItalic,
+]
+
+\setsansfont{Junction}[
+    Path=./fonts/junction/,
+    Extension=.otf,
+    UprightFont=*-regular,
+    BoldFont=*-bold,
+    ItalicFont=*-light,
+]
+
+\newgeometry{top=2.1cm}
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+\renewcommand{\maketitle}{
+    \begin{center}
+        \color{white}
+        {\huge\bfseries\theauthor}
+        \vspace{.5em}
+
+        \textsf{![CELLPHONE] | ![EMAIL]} \par
+        \textsf{![ADDRESS]}
+
+    \end{center}
+}
+
+\begin{document}
+
+\AddToShipoutPictureBG*{%
+    \AtPageUpperLeft{%
+        \raisebox{-4.5cm}{%
+            \definecolor{bestgray}{RGB}{16,16,16}%
+            \color{bestgray}%
+            \rule{\paperwidth}{3.5cm}%
+        }%
+    }%
+}%
+
+\author{\textsf{![FIRSTNAME] ![LASTNAME]}}
+\maketitle
+\vspace{1cm}
+
+![HRFULLNAME]\par
+![HRTITLE]\par
+![COMPANYNAME]\par
+![COMPANYADDRESS]
+
+\bigskip
+![DATE]
+
+\bigskip
+Dear ![HRFIRSTNAME],
+
+\bigskip
+![PARAONE]
+
+\bigskip
+![PARATWO]
+
+\bigskip
+![PARATHREE]
+
+\bigskip
+Sincerely,
+
+%\bigskip
+%\includegraphics[height=1.5\baselineskip]{signature}
+
+\bigskip
+![FIRSTNAME] ![LASTNAME]
+
+\end{document}
