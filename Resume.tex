@@ -1,14 +1,15 @@
 %!TEX TS-program = xelatex
 \documentclass[a4paper]{article}
 
-\usepackage{titlesec}
-\usepackage{titling}
-\usepackage{fontspec}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{eso-pic}
+\usepackage{fontawesome5}
+\usepackage{fontspec}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{titling}
 
 \setmainfont{Libertinus}[
     Path=./fonts/Libertinus/,
@@ -44,7 +45,7 @@
         {\huge\bfseries\theauthor}
         \vspace{.5em}
 
-        \textsf{![CELLPHONE] | ![EMAIL]}\par
+        \textsf{\faIcon{phone} ![CELLPHONE] | \faIcon{envelope} ![EMAIL]}\par
         \textsf{![ADDRESS]}
 
     \end{center}
