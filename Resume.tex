@@ -2,6 +2,7 @@
 \documentclass[a4paper]{article}
 
 \usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
 \usepackage{eso-pic}
 \usepackage{fontawesome5}
 \usepackage{fontspec}
@@ -39,35 +40,34 @@
 
 \renewcommand{\familydefault}{\rmdefault}
 
+\definecolor{bestgray}{RGB}{16,16,16}%
+
+\newtcolorbox{widebox}[1][]{spread sidewards, left*=0pt, right*=4cm, colback=bestgray!10, coltext=white!100, colframe=bestgray!100, colback=bestgray!100, enhanced, sharp corners, halign=right}
+
 \renewcommand{\maketitle}{
-    \begin{center}
-        \color{white}
-        {\huge\bfseries\theauthor}
-        \vspace{.5em}
-
-        \textsf{\faIcon{phone} ![CELLPHONE] | \faIcon{envelope} ![EMAIL]}\par
-        \textsf{![ADDRESS]}
-
-    \end{center}
+  \begin{widebox}
+    {\huge\bfseries\textsf\theauthor} \\
+    \medskip{}
+    \begin{tabular}{@{}c|c@{}}
+        \faIcon{linkedin} \textsf{![LINKEDINURL]} & \faIcon{github} \textsf{![GITHUBURL]}
+    \end{tabular}
+    \begin{tabular}{@{}c|c@{}}
+        \faIcon{mobile} \textsf{![CELLPHONE]} & \faIcon{envelope} \textsf{![EMAIL]}
+    \end{tabular} \\
+    \medskip{}
+    \faIcon{home} \textsf{![ADDRESSL1]} \\
+    \textsf{![ADDRESSL2]} \\
+    \textsf{![ADDRESSL3]}
+  \end{widebox}
 }
-
 \titleformat{\section}{\huge\bfseries\center}{}{0em}{\textsf}[\titlerule]
 \titleformat{\subsection}{\bfseries\Large}{}{0em}{\textsf}
 \titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{\textsf}
 
 \begin{document}
 
-\AddToShipoutPictureBG*{%
-    \AtPageUpperLeft{%
-        \raisebox{-4.5cm}{%
-            \definecolor{bestgray}{RGB}{16,16,16}%
-            \color{bestgray}%
-            \rule{\paperwidth}{3.5cm}%
-        }%
-    }%
-}%
-
 \author{\textsf{![FIRSTNAME] ![LASTNAME]}}
+
 \maketitle
 
 \section{Professional Experience}
