@@ -1,12 +1,12 @@
 macros: |
-  \providecommand{\appfirstname}{John}
-  \providecommand{\applastname}{Doe}
-  \providecommand{\appgithuburl}{\href{https://github.com/JohnDoe}{JohnDoe}}
-  \providecommand{\applinkedinurl}{\href{https://www.linkedin.com/in/JohnDoe/}{JohnDoe}}
-  \providecommand{\appcellphone}{123.456.7890}
-  \providecommand{\appemail}{johndoe@example.com}
-  \providecommand{\appaddresslineone}{743 Jakayla Route}
-  \providecommand{\appaddresslinetwo}{Brekkeburgh, AK 39000}
-  \providecommand{\appaddresslinethree}{ST 161}
-  \providecommand{\apphrfullname}{Hiring Manager}
-  \providecommand{\apphrfirstname}{Hiring Manager}
+    \providecommand{\appfirstname}{John}
+    \providecommand{\applastname}{Doe}
+    \providecommand{\appgithuburl}{\href{https://github.com/JohnDoe}{JohnDoe}}
+    \providecommand{\applinkedinurl}{\href{https://www.linkedin.com/in/JohnDoe/}{JohnDoe}}
+    \providecommand{\appcellphone}{123.456.7890}
+    \providecommand{\appemail}{johndoe@example.com}
+    \providecommand{\appaddresslineone}{743 Jakayla Route}
+    \providecommand{\appaddresslinetwo}{Brekkeburgh, AK 39000}
+    \providecommand{\appaddresslinethree}{ST 161}
+    \providecommand{\apphrfullname}{Hiring Manager}
+    \providecommand{\apphrfirstname}{Hiring Manager}
