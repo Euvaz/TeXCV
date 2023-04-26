@@ -5,6 +5,7 @@
 def/
 fonts/
 out/
+pre/
 
 # ---> TeX
 ## Core latex/pdflatex auxiliary files:
