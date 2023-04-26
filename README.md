@@ -14,12 +14,13 @@ The solution I decided to implement allows for specific [LaTeX](https://www.late
 ## 📂 Repository structure
 
 ```
-def         # TeX files which define the macros
+def         # TeX files which define base macros
 doc         # TeX templates
 fonts       # Font directory
 out/        # Output directory
 ├── merge   # Merged TeX files, source files for PDFs
 └── pdf     # PDF output
+pre         # TeX files which defined unique macros
 ```
 
 ## Usage
