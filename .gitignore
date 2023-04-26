@@ -3,7 +3,6 @@
 *.env
 ## Ignore unique
 def/
-doc/
 fonts/
 out/
 
