@@ -16,6 +16,7 @@ The solution I decided to implement allows for specific [LaTeX](https://www.late
 ```
 def         # TeX files which define the macros
 doc         # TeX templates
+fonts       # Font directory
 out/        # Output directory
 ├── merge   # Merged TeX files, source files for PDFs
 └── pdf     # PDF output

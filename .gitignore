@@ -2,10 +2,10 @@
 ## Ignore envs
 *.env
 ## Ignore unique
-conv/
-envs/
+def/
+doc/
 fonts/
-pdfs/
+out/
 
 # ---> TeX
 ## Core latex/pdflatex auxiliary files:
