@@ -6,7 +6,7 @@ The solution I decided to implement allows for specific [LaTeX](https://www.late
 
 ## Overview
 
-- [Repository structure](https://github.com/euvaz/texcv#-repository-structure)]
+- [Repository structure](https://github.com/euvaz/texcv#-repository-structure)
 - [Usage](https://github.com/euvaz/texcv#usage)
 - [Texout](https://github.com/euvaz/texcv#texout)
 - [Pdfgen](https://github.com/euvaz/texcv#pdfgen)
