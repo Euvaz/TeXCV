@@ -2,14 +2,13 @@
 
 I wanted a specialized solution for version-controlling my resume, with the added ability of being able to generate a unique version (given a template), for different applications, all without having to manually create a new file for each implementation.
 
-The solution I decided to implement allows for specific [LaTeX](https://www.latex-project.org/) templates to be created, and the [texout.sh](https://github.com/euvaz/TeXCV/src/branch/main/texout.sh) utility to perform variable substitution, after first being provided a `default.env` file within the root directory, and a `*.env` file within the `./envs` directory. When used in combination with the [pdfgen.sh](https://github.com/euvaz/TeXCV/src/branch/main/pdfgen.sh) utility, a variable-substituted pdf will be generated within the `./pdfs` directory.
+The solution I decided to implement allows for specific [LaTeX](https://www.latex-project.org/) templates to be created, and the [gen.sh](https://github.com/Euvaz/TeXCV/blob/main/gen.sh) utility to effectively perform substitution using [LaTeX Macros](https://en.wikibooks.org/wiki/LaTeX/Macros), after first being provided a `./def/*.tex` file(s). A `./pre/*.tex` file will also need to be created, however it can be left completely empty if all values will be specified in the `./def/*.tex` file(s).
 
 ## Overview
 
 - [Repository structure](https://github.com/euvaz/texcv#-repository-structure)
 - [Usage](https://github.com/euvaz/texcv#usage)
-- [Texout](https://github.com/euvaz/texcv#texout)
-- [Pdfgen](https://github.com/euvaz/texcv#pdfgen)
+- [Examples](https://github.com/euvaz/texcv#examples)
 
 ## 📂 Repository structure
 
@@ -25,4 +24,15 @@ pre         # TeX files which defined unique macros
 
 ## Usage
 
-TODO
+`./gen.sh doc/{template}.tex pre/{macros}.tex`
+
+## Examples
+
+Generate a Resume PDF for the Amazon.tex macro file
+
+`./gen.sh doc/Resume.tex pre/Amazon.tex`
+
+Generate a Cover Letter PDF for the Google.tex macro file
+
+`./gen.sh doc/CoverLetter.tex pre/Google.tex`
+
