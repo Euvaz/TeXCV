@@ -64,7 +64,6 @@ jobs:
                 fromJSON('
                   [
                     "ACTION_ACTIONLINT",
-                    "COPYPASTE_JSCPD",
                     "REPOSITORY_GIT_DIFF",
                     "REPOSITORY_SECRETLINT",
                     "LATEX_CHKTEX"
