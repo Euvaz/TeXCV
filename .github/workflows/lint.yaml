@@ -40,7 +40,7 @@ jobs:
           curl --location --silent -- "$url" | xz --decompress | tar --extract
           mkdir --parents ./fonts/
           mv --no-clobber "./$foldername/static/OTF/" ./fonts/Libertinus/
-          rm --recursive ./$foldername
+          rm --recursive "./$foldername"
 
           # [SOPS](https://github.com/mozilla/sops)
           sops_latest_version=$(curl --silent "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching '"tag_name": "v\K[0-9.]+')
