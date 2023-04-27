@@ -53,7 +53,9 @@ jobs:
           rm ./sops.deb
 
       - name: Decrypt Secrets
-        run: ./gen.sh
+        run: |-
+          export SOPS_AGE_KEY=${{ secrets.AGE_SECRET_KEY }}
+          ./gen.sh
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2.8.0
