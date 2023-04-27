@@ -1,0 +1,74 @@
+---
+name: Compile and Upload
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ./def/
+      - ./doc/
+      - ./pre/
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  DEFAULT_BRANCH: main
+
+jobs:
+  compileandupload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Resolve Dependencies
+        run: |-
+          # [junction](https://github.com/theleagueof/junction)
+          url="https://github.com/theleagueof/junction/archive/master.tar.gz"
+          printf 'Downloading %s\n' "$url" >&2
+          curl --location --silent -- "$url" | tar --extract --gunzip
+          mkdir --parents ./fonts/
+          mv --no-clobber "./junction-master/" ./fonts/junction/
+
+          # [Libertinus](https://github.com/alerque/libertinus)
+          response=$(curl --silent --location 'https://api.github.com/repos/alerque/libertinus/releases/latest')
+          url=$(printf '%s' "$response" | jq --raw-output '.assets[] | select(.content_type == "application/x-xz").browser_download_url')
+          foldername=$(basename -- "$url" .tar.xz)
+          printf 'Downloading %s\n' "$url" >&2
+          curl --location --silent -- "$url" | xz --decompress | tar --extract
+          mkdir --parents ./fonts/
+          mv --no-clobber "./$foldername/static/OTF/" ./fonts/Libertinus/
+          rm --recursive ./$foldername
+
+          # [SOPS](https://github.com/mozilla/sops)
+          sops_latest_version=$(curl --silent "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching '"tag_name": "v\K[0-9.]+')
+          curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${sops_latest_version}_amd64.deb"
+          sudo apt --fix-broken install ./sops.deb
+          rm ./sops.deb
+
+      - name: Decrypt Secrets
+        run: ./gen.sh
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2.8.0
+        with:
+          root_file: ./out/merge/*.tex
+          glob_root_file: true
+
+      - name: Compress Artifact(s)
+        run: |-
+          cd ./out/pdf/
+          tar -czf Artifact.tar.gz *.pdf
+
+      - name: Upload to Private Artifact Repository
+        run: |-
+          NEXTCLOUD_SECRET=$(echo -n '${{ secrets.NEXTCLOUD_USERNAME }}':$'{{ secrets.NEXTCLOUD_PASSWORD }}' | base64)
+          curl -H "Authorization: Basic $NEXTCLOUD_SECRET"\
+            -T ./out/pdf/Artifact.tar.gz https://cloud.${{ secrets.SECRET_DOMAIN }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME  }}/WebDAV/TeXCV/
+
