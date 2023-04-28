@@ -73,7 +73,7 @@ jobs:
 
       - name: Upload to Private Artifact Repository
         run: |-
-          NEXTCLOUD_SECRET=$(echo -n '${{ secrets.NEXTCLOUD_USERNAME }}':$'{{ secrets.NEXTCLOUD_PASSWORD }}' | base64)
+          NEXTCLOUD_SECRET=$(echo -n '${{ secrets.NEXTCLOUD_USERNAME }}':'${{ secrets.NEXTCLOUD_PASSWORD }}' | base64)
           curl -H "Authorization: Basic $NEXTCLOUD_SECRET"\
             -T ./out/pdf/Artifact.tar.gz https://cloud.${{ secrets.SECRET_DOMAIN }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME  }}/WebDAV/TeXCV/
 
