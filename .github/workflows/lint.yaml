@@ -6,6 +6,10 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - ./def/
+      - ./doc/
+      - ./pre/
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
