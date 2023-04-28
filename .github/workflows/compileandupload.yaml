@@ -62,6 +62,9 @@ jobs:
         with:
           root_file: ./out/merge/*.tex
           glob_root_file: true
+          working_directory: ./
+          args: -output-directory ./out/pdf/
+          latexmk_use_xelatex: true
 
       - name: Compress Artifact(s)
         run: |-
