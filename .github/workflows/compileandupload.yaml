@@ -58,7 +58,7 @@ jobs:
           ./gen.sh
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2.8.0
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: ./out/merge/*.tex
           glob_root_file: true
