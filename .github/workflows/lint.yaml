@@ -73,4 +73,5 @@ jobs:
               )
             }}
           LATEX_CHKTEX_CONFIG_FILE: .github/linters/.chktex.yaml
+          LATEX_CHKTEX_ARGUMENTS: --nowarn 1 --nowarn 8 --nowarn 44
 
