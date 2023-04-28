@@ -69,7 +69,7 @@ jobs:
       - name: Compress Artifact(s)
         run: |-
           cd ./out/pdf/
-          tar -czf Artifact.tar.gz ./*.pdf
+          tar cf Artifact.tar.gz -- *.pdf
 
       - name: Upload to Private Artifact Repository
         run: |-
