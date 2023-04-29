@@ -1,8 +1,10 @@
 # TeXCV
 
-I wanted a specialized solution for version-controlling my resume, with the added ability of being able to generate a unique version (given a template), for different applications, all without having to manually create a new file for each implementation.
+I developed a specialized solution for version-controlling my resume, aiming to generate a unique version for each job application using a customizable template without the need to manually create a new file for each implementation. Furthermore, I sought to automate the process of delivering these templates and add linting features to ensure consistency and high-quality output.
 
-The solution I decided to implement allows for specific [LaTeX](https://www.latex-project.org/) templates to be created, and the [gen.sh](https://github.com/Euvaz/TeXCV/blob/main/gen.sh) utility to effectively perform substitution using [LaTeX Macros](https://en.wikibooks.org/wiki/LaTeX/Macros), after first being provided a `./def/*.tex` file(s). A `./pre/*.tex` file will also need to be created, however it can be left completely empty if all values will be specified in the `./def/*.tex` file(s).
+To achieve this, I created a solution that enables the creation of specific LaTeX templates that can be customized using LaTeX macros. I developed a utility, [gen.sh](https://github.com/Euvaz/TeXCV/blob/main/gen.sh), that performs effective substitution of these macros.
+
+To ensure quality and consistency in the resume generation process, I utilized the powerful CI/CD capabilities of [GitHub Actions](https://github.com/features/actions). This allows for automatic linting of new pull requests and the automatic compilation and delivery of a new `Artifact.tar.gz` to my self-hosted Nextcloud instance upon pushes to the main branch.
 
 ## Overview
 
