@@ -24,15 +24,25 @@ pre         # TeX files which defined unique macros
 
 ## Usage
 
-`./gen.sh doc/{template}.tex pre/{macros}.tex`
+`./gen.sh`
 
 ## Examples
 
-Generate a Resume PDF for the Amazon.tex macro file
+### Manually compiling a specific Resume PDF.
 
-`./gen.sh doc/Resume.tex pre/Amazon.tex`
 
-Generate a Cover Letter PDF for the Google.tex macro file
+Run `./gen.sh` to generate all merge files:
 
-`./gen.sh doc/CoverLetter.tex pre/Google.tex`
+```bash
+$ ./gen.sh
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/amazon.sops.yaml MERGE=./out/merge/amazon-Resume.tex
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/google.sops.yaml MERGE=./out/merge/google-Resume.tex
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/microsoft.sops.yaml MERGE=./out/merge/microsoft-Resume.tex
+```
+
+Compile the `amazon-Resume.tex` into a PDF using `xelatex`:
+
+```bash
+$ xelatex -output-directory ./out/pdf/ ./out/merge/amazon-Resume.tex
+```
 
