@@ -10,7 +10,8 @@ To ensure quality and consistency in the resume generation process, I utilized t
 
 - [Repository structure](https://github.com/euvaz/texcv#-repository-structure)
 - [Usage](https://github.com/euvaz/texcv#usage)
-- [Examples](https://github.com/euvaz/texcv#examples)
+    - [Automation](https://github.com/euvaz/texcv#automation)
+    - [Manual](https://github.com/euvaz/texcv#manual)
 
 ## 📂 Repository structure
 
@@ -26,13 +27,25 @@ pre         # TeX files which defined unique macros
 
 ## Usage
 
-`./gen.sh`
+This project can be utilized in two ways:
 
-## Examples
+1. Automation: GitHub Actions
+2. Manual: Executing the script and compiling the PDF(s)
 
-### Manually compiling a specific Resume PDF.
+### Automation
 
-Run `./gen.sh` to generate all merge files:
+Automation will require the following action repository secrets:
+
+| Name | Description |
+| ---- | ----------- |
+| AGE_SECRET_KEY | Age private key for SOPS decryption of macros |
+| NEXTCLOUD_PASSWORD | Nextcloud password for Artifact uploading |
+| NEXTCLOUD_USERNAME | Nextcloud username for Artifact uploading |
+| SECRET_DOMAIN | Domain of Nextcloud instance |
+
+### Manual
+
+Manually compiling resume PDFs can be done by first generating all merge files via `gen.sh`:
 
 ```bash
 $ ./gen.sh
@@ -41,9 +54,15 @@ $ ./gen.sh
 [INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/Microsoft.sops.yaml MERGE=./out/merge/Microsoft-Resume.tex
 ```
 
-Compile the `Amazon-Resume.tex` into a PDF using `xelatex`:
+Then compiling all merge files located in `./out/merge/` via `xelatex`:
 
 ```bash
-$ xelatex -output-directory ./out/pdf/ ./out/merge/Amazon-Resume.tex
+$ xelatex -output-directory ./out/pdf/ ./out/merge/*.tex
+```
+
+A specific PDF can also be generated:
+
+```bash
+$ xelatex -output-directory ./out/pdf/ ./out/merge/Google.sops.yaml
 ```
 
