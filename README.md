@@ -32,7 +32,6 @@ pre         # TeX files which defined unique macros
 
 ### Manually compiling a specific Resume PDF.
 
-
 Run `./gen.sh` to generate all merge files:
 
 ```bash
