@@ -36,12 +36,12 @@ This project can be utilized in two ways:
 
 Automation will require the following action repository secrets:
 
-| Name | Description |
-| ---- | ----------- |
-| AGE_SECRET_KEY | Age private key for SOPS decryption of macros |
-| NEXTCLOUD_PASSWORD | Nextcloud password for Artifact uploading |
-| NEXTCLOUD_USERNAME | Nextcloud username for Artifact uploading |
-| SECRET_DOMAIN | Domain of Nextcloud instance |
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| AGE_SECRET_KEY | Age private key for SOPS decryption of macros | AGE-SECRET-KEY-... |
+| NEXTCLOUD_PASSWORD | Nextcloud password for Artifact uploading | User |
+| NEXTCLOUD_USERNAME | Nextcloud username for Artifact uploading | Pass |
+| SECRET_NEXTCLOUD_URL | Full URL of Nextcloud instance | https://nc.example.com |
 
 ### Manual
 
