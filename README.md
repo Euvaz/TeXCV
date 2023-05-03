@@ -37,14 +37,14 @@ Run `./gen.sh` to generate all merge files:
 
 ```bash
 $ ./gen.sh
-[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/amazon.sops.yaml MERGE=./out/merge/amazon-Resume.tex
-[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/google.sops.yaml MERGE=./out/merge/google-Resume.tex
-[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/microsoft.sops.yaml MERGE=./out/merge/microsoft-Resume.tex
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/Amazon.sops.yaml MERGE=./out/merge/Amazon-Resume.tex
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/Google.sops.yaml MERGE=./out/merge/Google-Resume.tex
+[INFO] MERGING: DOCUMENT=./doc/Resume.tex MACRO=./pre/Microsoft.sops.yaml MERGE=./out/merge/Microsoft-Resume.tex
 ```
 
-Compile the `amazon-Resume.tex` into a PDF using `xelatex`:
+Compile the `Amazon-Resume.tex` into a PDF using `xelatex`:
 
 ```bash
-$ xelatex -output-directory ./out/pdf/ ./out/merge/amazon-Resume.tex
+$ xelatex -output-directory ./out/pdf/ ./out/merge/Amazon-Resume.tex
 ```
 
