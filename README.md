@@ -60,7 +60,7 @@ Then compiling all merge files located in `./out/merge/` via `xelatex`:
 $ xelatex -output-directory ./out/pdf/ ./out/merge/*.tex
 ```
 
-A specific PDF can also be generated:
+Optionally, an individual PDF can also be generated:
 
 ```bash
 $ xelatex -output-directory ./out/pdf/ ./out/merge/Google.sops.yaml
