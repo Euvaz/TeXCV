@@ -9,7 +9,6 @@
 \usepackage{fontspec}
 \usepackage{geometry}
 \usepackage{hyperref}
-\usepackage{multicol}
 \usepackage{titlesec}
 \usepackage{titling}
 
@@ -35,7 +34,7 @@
     urlcolor=MidnightBlue,
 }
 
-\newgeometry{top=0em}
+\newgeometry{top=0em,left=3em,right=3em}
 \setlength{\parindent}{0em}
 \pagenumbering{gobble}
 
@@ -59,6 +58,7 @@
     \faIcon{home} \textsf{\appaddress{}}
   \end{widebox}
 }
+
 \titleformat{\section}{\bfseries\LARGE\center}{}{0em}{\textsf}[\titlerule]
 \titleformat{\subsection}{\bfseries\large}{}{0em}{\textsf}
 \titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{\textsf}
@@ -74,10 +74,11 @@
 \textit{Nashville Music City Center -- Nashville, TN}\hfill Dec 2022 -- Present
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item Successfully deployed new infrastructure and optimized existing infrastructure, ensuring seamless production.
-    \item Conducted regular team meetings to discuss projects and ensure system reliability.
-    \item Effectively reduced network-wide vulnerabilities by proactively implementing security patches.
-    \item Implemented a development environment for sandboxing, promoting software testing and innovation.
+    \item Managed VMware ESXi clusters, ensuring optimal performance and high availability.
+    \item Implemented observability stacks (Prometheus, Elastic Stack) for proactive monitoring and efficient troubleshooting.
+    \item Configured streamlined PXE/iPXE deployment server for rapid and automated image deployment.
+    \item Automated critical processes using scripting languages (Python, Bash, PowerShell) for improved efficiency and productivity.
+    \item Implemented timely cybersecurity patches based on vulnerability reports, ensuring a secure infrastructure.
 \end{itemize}
 
 \vspace{0.5em}
@@ -85,8 +86,9 @@
 \textit{PacSun -- Anaheim, CA}\hfill Nov 2021 -- Nov 2022
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item Ensured all technological issues were resolved in a timely manner during Black Friday, Christmas, and New Year holidays.
-    \item Developed team-wide network troubleshooting tools written in Python.
+    \item Troubleshot network issues, optimizing performance and security by resolving firewall, VPN, DHCP, and DNS issues.
+    \item Developed Python scripts for efficient network troubleshooting and streamlined operations.
+    \item Achieved SLA reduction through efficient problem-solving and effective support, enhancing service delivery.
 \end{itemize}
 
 \vspace{0.5em}
@@ -94,7 +96,9 @@
 \textit{Hot Topic, Inc. -- City of Industry, CA}\hfill Aug 2021 -- Nov 2021
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item Developed department-wide remote administration tools to increase the efficiency of the helpdesk team, guaranteeing optimum support.
+    \item Resolved complex networking issues related to POS/MPOS systems and mobile devices, ensuring seamless connectivity.
+    \item Demonstrated expertise in DHCP and DNS troubleshooting, optimizing network functionality.
+    \item Utilized custom deployment tools for streamlined systems operation and configuration.
 \end{itemize}
 
 \vspace{0.5em}
@@ -102,8 +106,9 @@
 \textit{GW Security, Inc. -- South El Monte, CA}\hfill Aug 2020 -- Jun 2021
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item Successfully upgraded the help desk infrastructure by implementing and testing a new ticketing system.
-    \item Utilized the system's new features to ensure that the Service Level Agreement (SLA) was met and incidents were resolved quickly and efficiently.
+    \item Ensured optimal network functionality by troubleshooting DHCP and DNS issues.
+    \item Demonstrated expertise in subnetting and network configuration, enhancing efficient network management.
+    \item Deployed new ticketing system, improving department-wide SLA and customer support.
 \end{itemize}
 
 \section{Technical Skills}
@@ -113,6 +118,8 @@
 \end{itemize}
 \end{minipage}
 
+\newpage{}
+\vspace*{-1em}
 \section{Projects}
 \subsection{Self-hosted High-Availability Kubernetes Cluster}
 \begin{itemize}[noitemsep,nolistsep]
