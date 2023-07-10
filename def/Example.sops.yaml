@@ -5,9 +5,9 @@ macros: |
     \providecommand{\applinkedinurl}{\href{https://www.linkedin.com/in/JohnDoe/}{JohnDoe}}
     \providecommand{\appcellphone}{\href{tel:11234567890}{+1 123-456-7890}}
     \providecommand{\appemail}{\href{mailto:johndoe@example.com}{johndoe@example.com}}
-    \providecommand{\appaddress}{
-      743 Jakayla Route \\
-      Brekkeburgh, AK 39000 \\
+    \providecommand{\appaddress}{%
+      743 Jakayla Route \par
+      Brekkeburgh, AK 39000 \par
       ST 161
     }
     \providecommand{\appsynopsis}{
