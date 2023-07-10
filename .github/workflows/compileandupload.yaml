@@ -54,7 +54,6 @@ jobs:
           sops_latest_version=$(curl --silent "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching '"tag_name": "v\K[0-9.]+')
           curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${sops_latest_version}_amd64.deb"
           sudo apt --fix-broken install ./sops.deb
-          rm ./sops.deb
 
       - name: Decrypt Secrets
         run: |-
