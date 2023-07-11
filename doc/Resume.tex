@@ -60,13 +60,17 @@
     {\bfseries\LARGE\textsf\applastname{}}
 
     \section{Contact}
-    \begin{tabular}{ lp{4.6cm} }
-        \textbf{LinkedIn:} & \textsf{\applinkedinurl{}} \\
-        \textbf{GitHub:} & \textsf{\appgithuburl{}} \\
-        \textbf{Phone:} & \textsf{\appcellphone{}} \\
-        \textbf{Email:} & \textsf{\appemail{}} \\
-        \textbf{Address:} & \textsf{\appaddress{}}
-    \end{tabular}
+    \vbox{
+        \halign{\tabskip=.5em
+            \vtop{\hsize=.25\textwidth\raggedright\bfseries #:}&
+            \vtop{\hsize=.75\textwidth\raggedright\sffamily #}\cr
+            LinkedIn & \applinkedinurl{}\cr
+            GitHub & \appgithuburl{}\cr
+            Phone & \appcellphone{}\cr
+            Email & \appemail{}\cr
+            Address & \appaddress{}\cr
+        }
+    }
 
     \section{Education}
     \subsection{Degrees}
