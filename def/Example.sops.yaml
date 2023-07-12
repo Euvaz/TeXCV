@@ -1,8 +1,8 @@
 macros: |
     \providecommand{\appfirstname}{John}
     \providecommand{\applastname}{Doe}
-    \providecommand{\appgithuburl}{\href{https://github.com/JohnDoe}{JohnDoe}}
-    \providecommand{\applinkedinurl}{\href{https://www.linkedin.com/in/JohnDoe/}{JohnDoe}}
+    \providecommand{\appgithuburl}{\href{https://github.com/JohnDoe}{github.com/JohnDoe}}
+    \providecommand{\applinkedinurl}{\href{https://www.linkedin.com/in/JohnDoe/}{linkedin.com/in/JohnDoe}}
     \providecommand{\appcellphone}{\href{tel:11234567890}{+1 123-456-7890}}
     \providecommand{\appemail}{\href{mailto:johndoe@example.com}{johndoe@example.com}}
     \providecommand{\appaddress}{%
