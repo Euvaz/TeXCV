@@ -6,9 +6,9 @@ macros: |
     \providecommand{\appcellphone}{\href{tel:11234567890}{+1 123-456-7890}}
     \providecommand{\appemail}{\href{mailto:johndoe@example.com}{johndoe@example.com}}
     \providecommand{\appaddress}{%
-      743 Jakayla Route \par
-      Brekkeburgh, AK 39000 \par
-      ST 161
+      123 Street Way \par
+      City, ST 12345 \par
+      APT 123
     }
     \providecommand{\appsynopsis}{
       Someone who definitely knows what they are doing, and should be hired post-haste.
