@@ -1,0 +1,49 @@
+---
+name: Decrypt SOPS
+description: Decrypt SOPS secrets
+
+inputs:
+  sops-key:
+    description: SOPS private key
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+  - name: Download junction Font
+    shell: bash
+    run: |-
+      # [junction](https://github.com/theleagueof/junction)
+      url="https://github.com/theleagueof/junction/archive/master.tar.gz"
+      printf 'Downloading %s\n' "$url" >&2
+      curl --location --silent -- "$url" | tar --extract --gunzip
+      mkdir --parents ./fonts/
+      mv --no-clobber "./junction-master/" ./fonts/junction/
+
+  - name: Download Libertinus Font
+    shell: bash
+    run: |-
+      # [Libertinus](https://github.com/alerque/libertinus)
+      response=$(curl --silent --location 'https://api.github.com/repos/alerque/libertinus/releases/latest')
+      url=$(printf '%s' "$response" | jq --raw-output '.assets[] | select(.content_type == "application/x-xz").browser_download_url')
+      foldername=$(basename -- "$url" .tar.xz)
+      printf 'Downloading %s\n' "$url" >&2
+      curl --location --silent -- "$url" | xz --decompress | tar --extract
+      mkdir --parents ./fonts/
+      mv --no-clobber "./$foldername/static/OTF/" ./fonts/Libertinus/
+      rm --recursive "./$foldername"
+
+  - name: Download SOPS
+    shell: bash
+    run: |-
+      # [SOPS](https://github.com/mozilla/sops)
+      sops_latest_version=$(curl --silent --location "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching '"tag_name": "v\K[0-9.]+')
+      curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${sops_latest_version}_amd64.deb"
+      sudo apt --fix-broken install ./sops.deb
+
+  - name: Decrypt Secrets
+    shell: bash
+    run: |-
+      export SOPS_AGE_KEY=${{ inputs.sops-key }}
+      ./gen.sh

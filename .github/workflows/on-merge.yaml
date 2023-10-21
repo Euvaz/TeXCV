@@ -1,0 +1,36 @@
+---
+name: On Merge
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "def/*"
+      - "doc/*"
+      - "pre/*"
+
+env:
+  DEFAULT_BRANCH: main
+
+jobs:
+  compileandupload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Decrypt
+        uses: ./.github/actions/decrypt-sops
+        with:
+          sops-key: "${{ secrets.AGE_SECRET_KEY }}"
+
+      - name: Upload
+        uses: ./.github/actions/upload
+        with:
+          nc-user: "${{ secrets.NEXTCLOUD_USERNAME }}"
+          nc-pass: "${{ secrets.NEXTCLOUD_PASSWORD }}"
+          nc-url: "${{ secrets.SECRET_NEXTCLOUD_URL }}"

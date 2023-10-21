@@ -1,0 +1,40 @@
+---
+name: Upload
+description: Compiles and uploads LaTeX documents
+
+inputs:
+  nc-user:
+    description: Nextcloud username
+    required: true
+  nc-pass:
+    description: Nextcloud password
+    required: true
+  nc-url:
+    description: Nextcloud URL
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: ./out/merge/*.tex
+        glob_root_file: true
+        working_directory: ./
+        args: -output-directory=./out/pdf/
+        latexmk_use_xelatex: true
+
+    - name: Compress Artifact(s)
+      shell: bash
+      run: |-
+        cd ./out/pdf/
+        tar cf Artifact.tar.gz -- *.pdf
+
+    - name: Upload to Private Artifact Repository
+      shell: bash
+      run: |-
+        NEXTCLOUD_SECRET=$(echo -n '${{ inputs.nc-user }}':'${{ inputs.nc-pass }}' | base64)
+        curl -H "Authorization: Basic $NEXTCLOUD_SECRET"\
+          -T ./out/pdf/Artifact.tar.gz ${{ inputs.nc-url }}/remote.php/dav/files/${{ inputs.nc-user  }}/WebDAV/TeXCV/

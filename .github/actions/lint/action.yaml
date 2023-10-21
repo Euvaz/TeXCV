@@ -1,0 +1,34 @@
+---
+name: Lint
+description: Perform linting
+
+inputs:
+  token:
+    description: GitHub token
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: MegaLinter
+      uses: oxsecurity/megalinter@v6.22.2
+      env:
+        GITHUB_TOKEN: "${{ inputs.token }}"
+        VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
+        ENABLE_LINTERS: |-
+          ${{
+            join(
+              fromJSON('
+                [
+                  "ACTION_ACTIONLINT",
+                  "REPOSITORY_GIT_DIFF",
+                  "REPOSITORY_SECRETLINT",
+                  "LATEX_CHKTEX"
+                ]
+              '),
+              ','
+            )
+          }}
+        LATEX_CHKTEX_CONFIG_FILE: .github/linters/.chktex.yaml
+        LATEX_CHKTEX_ARGUMENTS: --nowarn 1 --nowarn 8 --nowarn 44
