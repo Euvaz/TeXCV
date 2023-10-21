@@ -11,17 +11,30 @@ on:
       - "doc/*"
       - "pre/*"
 
-env:
-  DEFAULT_BRANCH: main
-
 jobs:
-  compileandupload:
+  lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Decrypt
+        uses: ./.github/actions/decrypt-sops
         with:
-          fetch-depth: 0
+          sops-key: "${{ secrets.AGE_SECRET_KEY }}"
+
+      - name: Lint
+        uses: ./.github/actions/lint
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Decrypt
         uses: ./.github/actions/decrypt-sops
