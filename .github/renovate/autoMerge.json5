@@ -1,0 +1,12 @@
+{
+  "packageRules": [
+    {
+      "description": "Auto Merge GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "ignoreTests": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+    }
+  ]
+}
