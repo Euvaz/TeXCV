@@ -18,7 +18,7 @@ runs:
 
   steps:
     - name: Compile LaTeX document
-      uses: xu-cheng/latex-action@f1ca82cbed861b3534e2997dd584944f55b884ed # v3
+      uses: xu-cheng/latex-action@809f138f734cff030fab8eb42fd7a61a9bae94de # v3
       with:
         root_file: ./out/merge/*.tex
         glob_root_file: true
