@@ -63,6 +63,6 @@ $ xelatex -output-directory ./out/pdf/ ./out/merge/*.tex
 Optionally, an individual PDF can also be generated:
 
 ```bash
-$ xelatex -output-directory ./out/pdf/ ./out/merge/Google.sops.yaml
+$ xelatex -output-directory ./out/pdf/ ./out/merge/Google-Resume.tex
 ```
 
