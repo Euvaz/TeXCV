@@ -39,9 +39,9 @@ Automation will require the following action repository secrets:
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | AGE_SECRET_KEY | Age private key for SOPS decryption of macros | AGE-SECRET-KEY-... |
-| NEXTCLOUD_PASSWORD | Nextcloud password for Artifact uploading | User |
-| NEXTCLOUD_USERNAME | Nextcloud username for Artifact uploading | Pass |
-| SECRET_NEXTCLOUD_URL | Full URL of Nextcloud instance | https://nc.example.com |
+| AWS_ACCESS_KEY_ID | AWS Access Key ID | abcdef132456 |
+| AWS_SECRET_ACCESS_KEY | AWS Secret Access Key | abcdef123456 |
+| AWS_S3_ENDPOINT | AWS S3 Endpoint | s3:// or s3.domain.tld |
 
 ### Manual
 

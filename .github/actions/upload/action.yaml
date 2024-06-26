@@ -3,14 +3,14 @@ name: Upload
 description: Compiles and uploads LaTeX documents
 
 inputs:
-  nc-user:
-    description: Nextcloud username
+  aws-access-key-id:
+    description: AWS Access Key ID
     required: true
-  nc-pass:
-    description: Nextcloud password
+  aws-secret-access-key:
+    decription: AWS Secret Access Key
     required: true
-  nc-url:
-    description: Nextcloud URL
+  aws-s3-endpoint:
+    description: AWS S3 Endpoint
     required: true
 
 runs:
@@ -35,6 +35,8 @@ runs:
     - name: Upload to Private Artifact Repository
       shell: bash
       run: |-
-        NEXTCLOUD_SECRET=$(echo -n '${{ inputs.nc-user }}':'${{ inputs.nc-pass }}' | base64)
-        curl -H "Authorization: Basic $NEXTCLOUD_SECRET"\
-          -T ./out/pdf/Artifact.tar.gz ${{ inputs.nc-url }}/remote.php/dav/files/${{ inputs.nc-user  }}/WebDAV/TeXCV/
+        aws s3 sync ./out/pdf/Artifact.tar.gz ${{ inputs.aws-s3-endpoint }}/workflow-artifacts/texcv
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+        AWS_DEFAULT_REGION: "us-east-1"
