@@ -35,7 +35,7 @@ runs:
     - name: Upload to Private Artifact Repository
       shell: bash
       run: |-
-        aws s3 sync ./out/pdf/Artifact.tar.gz ${{ inputs.aws-s3-endpoint }}/workflow-artifacts/texcv
+        aws --endpoint-url ${{ inputs.aws-s3-endpoint }} s3 sync ./out/pdf/ s3://workflow-artifacts/texcv --exclude="*" --include="Artifact.tar.gz"
       env:
         AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}

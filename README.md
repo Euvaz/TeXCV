@@ -41,7 +41,7 @@ Automation will require the following action repository secrets:
 | AGE_SECRET_KEY | Age private key for SOPS decryption of macros | AGE-SECRET-KEY-... |
 | AWS_ACCESS_KEY_ID | AWS Access Key ID | abcdef132456 |
 | AWS_SECRET_ACCESS_KEY | AWS Secret Access Key | abcdef123456 |
-| AWS_S3_ENDPOINT | AWS S3 Endpoint | s3:// or s3.domain.tld |
+| AWS_S3_ENDPOINT | AWS S3 Endpoint | http(s)://s3.domain.tld:9000 |
 
 ### Manual
 
