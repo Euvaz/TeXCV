@@ -7,7 +7,7 @@ inputs:
     description: AWS Access Key ID
     required: true
   aws-secret-access-key:
-    decription: AWS Secret Access Key
+    description: AWS Secret Access Key
     required: true
   aws-s3-endpoint:
     description: AWS S3 Endpoint
