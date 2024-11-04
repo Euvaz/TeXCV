@@ -15,9 +15,9 @@ runs:
     shell: bash
     run: |-
       # [junction](https://github.com/theleagueof/junction)
-      url="https://github.com/theleagueof/junction/archive/master.tar.gz"
-      printf 'Downloading %s\n' "$url" >&2
-      curl --location --silent -- "$url" | tar --extract --gunzip
+      URL="https://github.com/theleagueof/junction/archive/master.tar.gz"
+      printf "Downloading %s\n" "${URL}" >&2
+      curl --location --silent -- "${URL}" | tar --extract --gunzip
       mkdir --parents ./fonts/
       mv --no-clobber "./junction-master/" ./fonts/junction/
 
@@ -25,21 +25,21 @@ runs:
     shell: bash
     run: |-
       # [Libertinus](https://github.com/alerque/libertinus)
-      response=$(curl --silent --location 'https://api.github.com/repos/alerque/libertinus/releases/latest')
-      url=$(printf '%s' "$response" | jq --raw-output '.assets[] | select(.content_type == "application/octet-stream").browser_download_url')
-      foldername=$(basename -- "$url" .tar.zst)
-      printf 'Downloading %s\n' "$url" >&2
-      curl --location --silent -- "$url" | tar --extract --use-compress-program=unzstd
+      RESPONSE=$(curl --silent --location "https://api.github.com/repos/alerque/libertinus/releases/latest")
+      URL=$(printf "%s" "${RESPONSE}" | jq --raw-output ".assets[] | select(.content_type == "application/octet-stream").browser_download_url")
+      FOLDER_NAME=$(basename -- "${URL}" .tar.zst)
+      printf "Downloading %s\n" "${URL}" >&2
+      curl --location --silent -- "${URL}" | tar --extract --use-compress-program=unzstd
       mkdir --parents ./fonts/
-      mv --no-clobber "./$foldername/static/OTF/" ./fonts/Libertinus/
-      rm --recursive "./$foldername"
+      mv --no-clobber "./${FOLDER_NAME}/static/OTF/" ./fonts/Libertinus/
+      rm --recursive "./${FOLDER_NAME}"
 
   - name: Download SOPS
     shell: bash
     run: |-
       # [SOPS](https://github.com/mozilla/sops)
-      sops_latest_version=$(curl --silent --location "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching '"tag_name": "v\K[0-9.]+')
-      curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${sops_latest_version}_amd64.deb"
+      SOPS_LATEST_VERSION=$(curl --silent --location "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching ""tag_name": "v\K[0-9.]+")
+      curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${SOPS_LATEST_VERSION}_amd64.deb"
       sudo apt --fix-broken install ./sops.deb
 
   - name: Decrypt Secrets
