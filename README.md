@@ -22,7 +22,7 @@ fonts       # Font directory
 out/        # Output directory
 ├── merge   # Merged TeX files, source files for PDFs
 └── pdf     # PDF output
-pre         # TeX files which defined unique macros
+pre         # TeX files which define unique macros
 ```
 
 ## Usage
