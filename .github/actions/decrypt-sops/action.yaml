@@ -26,7 +26,7 @@ runs:
     run: |-
       # [Libertinus](https://github.com/alerque/libertinus)
       RESPONSE=$(curl --silent --location "https://api.github.com/repos/alerque/libertinus/releases/latest")
-      URL=$(printf "%s" "${RESPONSE}" | jq --raw-output ".assets[] | select(.content_type == "application/octet-stream").browser_download_url")
+      URL=$(printf "%s" "${RESPONSE}" | jq --raw-output ".assets[] | select(.content_type == \"application/octet-stream\").browser_download_url")
       FOLDER_NAME=$(basename -- "${URL}" .tar.zst)
       printf "Downloading %s\n" "${URL}" >&2
       curl --location --silent -- "${URL}" | tar --extract --use-compress-program=unzstd
