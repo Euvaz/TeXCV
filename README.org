@@ -4,7 +4,7 @@ I developed a specialized solution for version-controlling my resume, aiming to 
 
 To achieve this, I created a solution that enables the creation of specific LaTeX templates that can be customized using LaTeX macros. I developed a utility, [[https://github.com/Euvaz/TeXCV/blob/main/gen.sh][gen.sh]], that performs effective substitution of these macros.
 
-To ensure quality and consistency in the resume generation process, I utilized the powerful CI/CD capabilities of [[https://github.com/features/actions][GitHub Actions]]. This allows for automatic linting of new pull requests and the automatic compilation and delivery of a new =Artifact.tar.gz= to my self-hosted Nextcloud instance upon pushes to the main branch.
+To ensure quality and consistency in the resume generation process, I utilized the powerful CI/CD capabilities of [[https://github.com/features/actions][GitHub Actions]]. This allows for automatic linting of new pull requests and the automatic compilation and delivery of a new =Artifact.tar.gz= to my self-hosted MinIO instance upon pushes to the main branch.
 
 ** Overview
 
