@@ -38,7 +38,7 @@ runs:
     shell: bash
     run: |-
       # [SOPS](https://github.com/mozilla/sops)
-      SOPS_LATEST_VERSION=$(curl --silent --location "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching "\"tag_name\": \"v\K[0-9.]+\"")
+      SOPS_LATEST_VERSION=$(curl --silent --location "https://api.github.com/repos/mozilla/sops/releases/latest" | grep --perl-regexp --only-matching "\"tag_name\": \"v\K[0-9.]+")
       curl --location --output sops.deb "https://github.com/mozilla/sops/releases/latest/download/sops_${SOPS_LATEST_VERSION}_amd64.deb"
       sudo apt --fix-broken install ./sops.deb
 
