@@ -63,5 +63,5 @@ $ xelatex -output-directory ./out/pdf/ ./out/merge/*.tex
 Optionally, an individual PDF can also be generated:
 
 #+BEGIN_SRC shell
-$ xelatex -output-directory ./out/pdf/ ./out/merge/Google-Resume.tex  
+$ xelatex -output-directory ./out/pdf/ ./out/merge/Google-Resume.tex
 #+END_SRC
