@@ -21,7 +21,6 @@ runs:
       uses: xu-cheng/latex-action@809f138f734cff030fab8eb42fd7a61a9bae94de # v3
       with:
         root_file: ./out/merge/*.tex
-        glob_root_file: true
         working_directory: ./
         args: -output-directory=./out/pdf/
         latexmk_use_xelatex: true
